@@ -1,0 +1,19 @@
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Aashish2815/maven-project'
+            }
+        }
+
+        stage('BUILD') {
+            steps {
+                bat '"C:/Program Files/apache-maven-4.0.0-rc-3-bin/apache-maven-4.0.0-rc-3/bin/mvn" clean install'
+            }
+        }
+    }
+}
